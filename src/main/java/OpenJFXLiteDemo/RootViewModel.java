@@ -68,6 +68,14 @@ public class RootViewModel extends RootViewModelBase {
         ));
     }
 
+    private void changeUserLoginCase() {
+        if (Character.isUpperCase(userLogin.get().charAt(0))) {
+            userLogin.set(userLogin.get().toLowerCase());
+        } else {
+            userLogin.set(userLogin.get().toUpperCase());
+        }
+    }
+
     @FXBeanInfo.Generate
     class NavItem extends NavItemBase {
 
@@ -80,13 +88,9 @@ public class RootViewModel extends RootViewModelBase {
             this.label = label;
             this.disabled = disabled;
         }
-        
+
         void onClick(ActionDataEvent ade) {
-            if (Character.isUpperCase(userLogin.get().charAt(0))) {
-                userLogin.set(userLogin.get().toLowerCase());
-            } else {
-                userLogin.set(userLogin.get().toUpperCase());
-            }
+            changeUserLoginCase();
         }
     }
 
@@ -102,13 +106,9 @@ public class RootViewModel extends RootViewModelBase {
             this.linkId = linkId;
             this.linkTarget = linkTarget;
         }
-        
+
         void onClick(ActionDataEvent ade) {
-            if (Character.isUpperCase(userLogin.get().charAt(0))) {
-                userLogin.set(userLogin.get().toLowerCase());
-            } else {
-                userLogin.set(userLogin.get().toUpperCase());
-            }
+            changeUserLoginCase();
         }
     }
 }
